@@ -15,9 +15,13 @@ class Account(AbstractUser):
         return f'{self.username}'
 
 
-class Ethereal(models.Model):
+class Service(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
+    name_2 = models.CharField(max_length=225, null=True, blank=True)
+    bio_2 = models.TextField(null=True, blank=True)
+    name_3 = models.CharField(max_length=225, null=True, blank=True)
+    bio_3 = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

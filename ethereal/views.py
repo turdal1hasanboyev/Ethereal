@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 
-from .models import Testimonial, Contact, Ethereal, About, Work
+from .models import Testimonial, Contact, Service, About, Work
 
 
 def home(request):
-    ethereal = Ethereal.objects.all().order_by('id')[:3]
-    work = Work.objects.all().order_by('-id')[4:]
+    service = Service.objects.get(id=1)
+    work = Work.objects.all().order_by('-id')[:4]
     testimonial = Testimonial.objects.all().order_by('id')[:3]
     about = About.objects.get(id=1)
 
@@ -23,7 +23,7 @@ def home(request):
         return redirect('home')
     
     context = {
-        'ethereal': ethereal,
+        'service': service,
         'work': work,
         'testimonial': testimonial,
         'about': about,
